@@ -1,0 +1,6 @@
+@Core_API_ConditionalMiddleware_HostAddress = http://localhost:5074
+
+GET {{Core_API_ConditionalMiddleware_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
