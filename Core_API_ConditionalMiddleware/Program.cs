@@ -31,12 +31,12 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 // To Read the HTTP Body
-app.Use((context, next) =>
-{
-    context.Request.EnableBuffering();
+//app.Use((context, next) =>
+//{
+//    context.Request.EnableBuffering();
 
-    return next();
-});
+//    return next();
+//});
 
 // Use the RequestLoggerMiddleware Conditionally
 app.UseWhen(context => context.Request.Path.StartsWithSegments("/api") && (
@@ -45,6 +45,8 @@ app.UseWhen(context => context.Request.Path.StartsWithSegments("/api") && (
 {
     appBuilder.UseMiddleware<RequestLoggerMiddleware>();
 });
+
+
 
 app.MapGet("/api/expenses", async (WowdbContext ctx) => {
     return await ctx.Expenses.ToListAsync();
